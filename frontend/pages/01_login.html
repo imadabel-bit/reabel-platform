@@ -3,55 +3,416 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - REABEL</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <title>Sign In - REABEL</title>
     <style>
-        body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #48A9A6 100%); }
-        .login-container { background: white; padding: 3rem; border-radius: 1rem; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 450px; width: 90%; }
-        .logo { text-align: center; margin-bottom: 2rem; }
-        .logo-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #48A9A6, #667eea); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: 28px; font-weight: bold; color: white; margin-bottom: 1rem; }
-        .role-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
-        .role-btn { padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 0.75rem; background: white; cursor: pointer; transition: all 0.2s; text-align: center; }
-        .role-btn:hover { border-color: #48A9A6; background: rgba(72,169,166,0.05); transform: translateY(-2px); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #48A9A6 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 440px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #48A9A6, #667eea);
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 1rem;
+            box-shadow: 0 8px 16px rgba(72, 169, 166, 0.3);
+        }
+        
+        .logo h1 {
+            font-size: 1.875rem;
+            color: #1F2937;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .logo p {
+            color: #6B7280;
+            font-size: 0.9375rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #48A9A6;
+            box-shadow: 0 0 0 3px rgba(72, 169, 166, 0.1);
+        }
+        
+        .form-group input::placeholder {
+            color: #9CA3AF;
+        }
+        
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
+        
+        .forgot-password a {
+            color: #48A9A6;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .forgot-password a:hover {
+            color: #3d8a87;
+            text-decoration: underline;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #48A9A6, #667eea);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(72, 169, 166, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: #E5E7EB;
+        }
+        
+        .divider span {
+            background: white;
+            padding: 0 1rem;
+            position: relative;
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+        
+        .signup-link {
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9375rem;
+        }
+        
+        .signup-link a {
+            color: #48A9A6;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        
+        .signup-link a:hover {
+            color: #3d8a87;
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            display: none;
+            background: #FEE2E2;
+            border-left: 4px solid #DC2626;
+            color: #DC2626;
+            padding: 0.875rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .error-message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .success-message {
+            display: none;
+            background: #D1FAE5;
+            border-left: 4px solid #059669;
+            color: #059669;
+            padding: 0.875rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin-left: 8px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
+        <!-- Logo -->
         <div class="logo">
             <div class="logo-icon">R</div>
-            <h1 style="margin: 0;">REABEL</h1>
-            <p style="color: #6b7280; margin-top: 0.5rem;">Strategic Assessment Platform</p>
+            <h1>REABEL</h1>
+            <p>Strategic Assessment Platform</p>
         </div>
-        <h2 style="text-align: center; margin-bottom: 1.5rem;">Select Your Role</h2>
-        <div class="role-grid">
-            <button class="role-btn" onclick="login('customer_admin')">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">👨‍💼</div>
-                <div style="font-weight: 600;">Admin</div>
-                <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">Full Access</div>
+        
+        <!-- Error/Success Messages -->
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+        
+        <!-- Login Form -->
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="you@example.com"
+                    required
+                    autocomplete="email"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Enter your password"
+                    required
+                    autocomplete="current-password"
+                    minlength="8"
+                >
+            </div>
+            
+            <div class="forgot-password">
+                <a href="04_forgot-password.html">Forgot password?</a>
+            </div>
+            
+            <button type="submit" id="loginButton" class="btn">
+                <span id="buttonText">Sign In</span>
             </button>
-            <button class="role-btn" onclick="login('domain_manager')">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
-                <div style="font-weight: 600;">Manager</div>
-                <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">Department</div>
-            </button>
-            <button class="role-btn" onclick="login('contributor')">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">✍️</div>
-                <div style="font-weight: 600;">Contributor</div>
-                <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">Team Member</div>
-            </button>
-            <button class="role-btn" onclick="login('observer')">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">👀</div>
-                <div style="font-weight: 600;">Observer</div>
-                <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">Read-Only</div>
-            </button>
+        </form>
+        
+        <div class="divider">
+            <span>or</span>
+        </div>
+        
+        <div class="signup-link">
+            Don't have an account? <a href="02_signup.html">Sign up</a>
         </div>
     </div>
+    
     <script>
-        function login(roleId) {
-            localStorage.setItem('reabel_demoRole', roleId);
-            localStorage.setItem('reabel_user', JSON.stringify({ id: 'user_demo', email: 'demo@acme.com', name: 'Demo User', role: roleId }));
-            window.location.href = '02_dashboard.html';
+        const API_URL = 'https://reabel-platform.onrender.com/api/v1';
+        
+        async function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('loginButton');
+            const buttonText = document.getElementById('buttonText');
+            
+            // Hide previous messages
+            hideMessages();
+            
+            // Disable button and show loading
+            loginButton.disabled = true;
+            buttonText.innerHTML = 'Signing in<span class="loading-spinner"></span>';
+            
+            try {
+                // Try API login
+                const response = await fetch(`${API_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success && data.token) {
+                    // Real login successful
+                    localStorage.setItem('reabel_token', data.token);
+                    localStorage.setItem('reabel_user', JSON.stringify(data.user));
+                    localStorage.setItem('reabel_demoRole', data.user.role);
+                    
+                    showSuccess('Login successful! Redirecting...');
+                    
+                    setTimeout(() => {
+                        window.location.href = '02_dashboard.html';
+                    }, 800);
+                    
+                } else if (data.needsVerification) {
+                    // Email not verified
+                    showError('Please verify your email address before logging in. Check your inbox for the verification link.');
+                    loginButton.disabled = false;
+                    buttonText.textContent = 'Sign In';
+                    
+                } else {
+                    throw new Error(data.message || 'Login failed');
+                }
+                
+            } catch (error) {
+                console.log('API login failed, trying demo mode:', error.message);
+                
+                // DEMO MODE FALLBACK
+                // Accept any credentials for testing
+                const demoUser = {
+                    id: 'demo_' + Date.now(),
+                    email: email,
+                    name: email.split('@')[0],
+                    role: 'customer_admin',
+                    tenantId: 'demo_tenant',
+                    tenantName: 'Demo Company'
+                };
+                
+                localStorage.setItem('reabel_user', JSON.stringify(demoUser));
+                localStorage.setItem('reabel_demoRole', 'customer_admin');
+                localStorage.setItem('reabel_demo_mode', 'true');
+                
+                showSuccess('Demo login successful! Redirecting...');
+                
+                setTimeout(() => {
+                    window.location.href = '02_dashboard.html';
+                }, 800);
+                
+            } finally {
+                // Re-enable button if still on page
+                if (loginButton.disabled) {
+                    setTimeout(() => {
+                        loginButton.disabled = false;
+                        buttonText.textContent = 'Sign In';
+                    }, 1000);
+                }
+            }
         }
+        
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+            
+            setTimeout(() => {
+                errorMessage.classList.remove('show');
+            }, 8000);
+        }
+        
+        function showSuccess(message) {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.textContent = message;
+            successMessage.classList.add('show');
+        }
+        
+        function hideMessages() {
+            document.getElementById('errorMessage').classList.remove('show');
+            document.getElementById('successMessage').classList.remove('show');
+        }
+        
+        // Check if coming from signup
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('registered') === 'true') {
+                showSuccess('Registration successful! Please check your email to verify your account.');
+            }
+        });
     </script>
 </body>
 </html>
