@@ -32,10 +32,13 @@ const APP_CONFIG = {
     },
 
     // Data sources (currently JSON, ready for API)
-    dataSources: {
-        mode: 'local', // local | api | hybrid
-        local: {
-            basePath: '../data',
+    avascriptdataSources: {
+    mode: 'api',
+    api: {
+        baseUrl: 'https://reabel-platform.onrender.com/api/v1'
+    },
+    local: {
+        basePath: '../data',
             files: {
                 roles: 'roles.json',
                 permissions: 'permissions.json',
