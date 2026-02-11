@@ -1,0 +1,138 @@
+{
+  "description": "Permission matrix - defines what each role can do. Fully database-driven.",
+  "permissions": {
+    "reabel_superadmin": [
+      "*"
+    ],
+    "reabel_csm": [
+      "read:*",
+      "write:customers",
+      "write:support",
+      "manage:support-tickets",
+      "view:analytics"
+    ],
+    "reabel_analyst": [
+      "read:*",
+      "export:reports",
+      "view:analytics",
+      "view:dashboards"
+    ],
+    "customer_admin": [
+      "read:own",
+      "write:own",
+      "delete:own",
+      "manage:team",
+      "manage:assessments",
+      "manage:templates",
+      "manage:questions",
+      "approve:responses",
+      "assign:tasks",
+      "view:reports",
+      "export:data"
+    ],
+    "domain_manager": [
+      "read:own",
+      "read:assigned",
+      "write:assigned",
+      "review:assigned",
+      "comment:all",
+      "view:reports",
+      "assign:within-domain"
+    ],
+    "contributor": [
+      "read:assigned",
+      "write:assigned",
+      "comment:own",
+      "save:drafts",
+      "submit:responses"
+    ],
+    "reviewer": [
+      "read:all",
+      "review:all",
+      "approve:responses",
+      "reject:responses",
+      "comment:all",
+      "request:changes"
+    ],
+    "observer": [
+      "read:all",
+      "view:reports",
+      "view:dashboards",
+      "export:reports"
+    ]
+  },
+  "actions": {
+    "description": "Granular action permissions that can be checked programmatically",
+    "create_assessment": ["customer_admin", "domain_manager"],
+    "edit_assessment": ["customer_admin", "domain_manager"],
+    "delete_assessment": ["customer_admin"],
+    "answer_question": ["customer_admin", "domain_manager", "contributor"],
+    "review_answer": ["customer_admin", "domain_manager", "reviewer"],
+    "approve_answer": ["customer_admin", "reviewer"],
+    "create_template": ["customer_admin", "reabel_superadmin"],
+    "edit_template": ["customer_admin", "reabel_superadmin"],
+    "assign_task": ["customer_admin", "domain_manager"],
+    "manage_team": ["customer_admin"],
+    "view_analytics": ["customer_admin", "reabel_superadmin", "reabel_csm", "reabel_analyst", "observer"],
+    "export_data": ["customer_admin", "reabel_superadmin", "reabel_analyst", "observer"]
+  },
+  "ui_features": {
+    "description": "UI feature visibility by role - controls what UI elements are shown",
+    "show_create_button": ["customer_admin", "domain_manager", "reabel_superadmin"],
+    "show_delete_button": ["customer_admin", "reabel_superadmin"],
+    "show_admin_menu": ["customer_admin", "reabel_superadmin"],
+    "show_analytics_tab": ["customer_admin", "reabel_superadmin", "reabel_csm", "reabel_analyst", "observer"],
+    "show_team_management": ["customer_admin", "reabel_superadmin"],
+    "show_template_editor": ["customer_admin", "reabel_superadmin"],
+    "show_bulk_actions": ["customer_admin", "domain_manager", "reabel_superadmin"],
+    "show_export_button": ["customer_admin", "reabel_superadmin", "reabel_analyst", "observer"],
+    "enable_inline_edit": ["customer_admin", "domain_manager", "contributor"]
+  },
+  "field_visibility": {
+    "description": "Which fields each role can see in forms - fully configurable",
+    "assessment": {
+      "basic_info": ["*"],
+      "internal_notes": ["customer_admin", "reabel_superadmin", "reabel_csm"],
+      "cost_data": ["customer_admin", "reabel_superadmin"],
+      "confidential_section": ["customer_admin", "reabel_superadmin"]
+    },
+    "question": {
+      "question_text": ["*"],
+      "help_text": ["*"],
+      "scoring_rubric": ["customer_admin", "domain_manager", "reviewer", "reabel_superadmin"],
+      "internal_tags": ["customer_admin", "reabel_superadmin"]
+    }
+  },
+  "data_filters": {
+    "description": "What data each role can see - row-level security",
+    "assessments": {
+      "reabel_superadmin": "all",
+      "reabel_csm": "all_customers",
+      "reabel_analyst": "all_customers",
+      "customer_admin": "own_company",
+      "domain_manager": "assigned_domains",
+      "contributor": "assigned_only",
+      "reviewer": "pending_review",
+      "observer": "own_company"
+    },
+    "questions": {
+      "reabel_superadmin": "all",
+      "customer_admin": "own_company",
+      "domain_manager": "assigned_domains",
+      "contributor": "assigned_only",
+      "reviewer": "all_in_company",
+      "observer": "all_in_company"
+    }
+  },
+  "workflow_states": {
+    "description": "Which roles can transition assessments/questions between states",
+    "assessment_states": {
+      "draft_to_active": ["customer_admin", "domain_manager"],
+      "active_to_review": ["contributor", "domain_manager"],
+      "review_to_approved": ["reviewer", "customer_admin"],
+      "review_to_rejected": ["reviewer", "customer_admin"],
+      "approved_to_published": ["customer_admin"],
+      "any_to_archived": ["customer_admin", "reabel_superadmin"]
+    }
+  }
+}

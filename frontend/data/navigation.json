@@ -1,0 +1,58 @@
+{
+  "navigation": [
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "icon": "layout-dashboard",
+      "href": "02_dashboard.html"
+    },
+    {
+      "id": "templates",
+      "label": "Templates",
+      "icon": "file-text",
+      "href": "03_templates.html"
+    },
+    {
+      "id": "editor",
+      "label": "Question Editor",
+      "icon": "edit",
+      "href": "04_question_editor.html"
+    },
+    {
+      "id": "create",
+      "label": "Create Assessment",
+      "icon": "plus-circle",
+      "href": "05_create_assessment.html"
+    },
+    {
+      "id": "answer",
+      "label": "Answer Questions",
+      "icon": "message-square",
+      "href": "06_answer_questions.html"
+    },
+    {
+      "id": "review",
+      "label": "Review",
+      "icon": "check-circle",
+      "href": "07_review.html"
+    },
+    {
+      "id": "actions",
+      "label": "Actions",
+      "icon": "list-checks",
+      "href": "08_actions.html"
+    },
+    {
+      "id": "progress",
+      "label": "Progress",
+      "icon": "trending-up",
+      "href": "09_progress.html"
+    },
+    {
+      "id": "team",
+      "label": "Team",
+      "icon": "users",
+      "href": "10_team.html"
+    }
+  ]
+}

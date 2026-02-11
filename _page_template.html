@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} - REABEL</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <style>
+        /* Layout fix for sidebar */
+        body { margin: 0; padding: 0; }
+        #sidebar-container { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 260px; 
+            height: 100vh; 
+            z-index: 1000; 
+        }
+        .main-content { 
+            margin-left: 260px; 
+            padding: 2rem; 
+            min-height: 100vh; 
+        }
+        /* Force sidebar expanded */
+        .sidebar { width: 260px !important; }
+        .sidebar.collapsed { width: 260px !important; }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Container -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        {{CONTENT}}
+    </div>
+
+    <!-- Required Containers -->
+    <div id="modal-container"></div>
+    <div id="roleSwitcherDropdown"></div>
+
+    <!-- External Libraries -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Core System -->
+    <script src="../config/app.config.js"></script>
+    <script src="../utils/eventBus.js"></script>
+    <script src="../store/store.js"></script>
+    <script src="../api/apiService.js"></script>
+
+    <!-- Services -->
+    <script src="../services/authService.js"></script>
+    <script src="../services/roleService.js"></script>
+    <script src="../services/configService.js"></script>
+    <script src="../services/navigationService.js"></script>
+    <script src="../services/notificationService.js"></script>
+
+    <!-- Components -->
+    <script src="../components/Component.js"></script>
+    <script src="../components/Sidebar.js"></script>
+    <script src="../components/RoleSwitcher.js"></script>
+    <script src="../components/Modal.js"></script>
+
+    <!-- Page Initialization -->
+    <script>
+        async function init() {
+            try {
+                console.log('🚀 Initializing {{TITLE}}...');
+                
+                // Initialize services
+                notificationService = new NotificationService();
+                await notificationService.initialize();
+                await roleService.initialize();
+                await navigationService.initialize();
+                
+                // Initialize components with expanded sidebar
+                sidebar = new Sidebar({ 
+                    currentPage: '{{PAGE_ID}}',
+                    collapsed: false  // Always expanded
+                });
+                sidebar.mount('#sidebar-container');
+                
+                roleSwitcherComponent = new RoleSwitcher();
+                roleSwitcherComponent.mount('#roleSwitcherDropdown');
+                
+                modalComponent = new Modal();
+                modalComponent.mount('#modal-container');
+                
+                // Initialize icons
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+                
+                console.log('✅ {{TITLE}} initialized successfully');
+            } catch (error) {
+                console.error('❌ Initialization error:', error);
+            }
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
+</body>
+</html>

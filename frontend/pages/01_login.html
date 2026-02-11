@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - REABEL</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #48A9A6 100%); }
+        .login-container { background: white; padding: 3rem; border-radius: 1rem; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 450px; width: 90%; }
+        .logo { text-align: center; margin-bottom: 2rem; }
+        .logo-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #48A9A6, #667eea); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: 28px; font-weight: bold; color: white; margin-bottom: 1rem; }
+        .role-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
+        .role-btn { padding: 1.5rem; border: 2px solid #e5e7eb; border-radius: 0.75rem; background: white; cursor: pointer; transition: all 0.2s; text-align: center; }
+        .role-btn:hover { border-color: #48A9A6; background: rgba(72,169,166,0.05); transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <div class="logo-icon">R</div>
+            <h1 style="margin: 0;">REABEL</h1>
+            <p style="color: #6b7280; margin-top: 0.5rem;">Strategic Assessment Platform</p>
+        </div>
+        <h2 style="text-align: center; margin-bottom: 1.5rem;">Select Your Role</h2>
+        <div class="role-grid">
+            <button class="role-btn" onclick="login('customer_admin')">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">👨‍💼</div>
+                <div style="font-weight: 600;">Admin</div>
+                <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">Full Access</div>
+            </button>
+            <button class="role-btn" onclick="login('domain_manager')">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
+                <div style="font-weight: 600;">Manager</div>
+                <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">Department</div>
+            </button>
+            <button class="role-btn" onclick="login('contributor')">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">✍️</div>
+                <div style="font-weight: 600;">Contributor</div>
+                <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">Team Member</div>
+            </button>
+            <button class="role-btn" onclick="login('observer')">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">👀</div>
+                <div style="font-weight: 600;">Observer</div>
+                <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">Read-Only</div>
+            </button>
+        </div>
+    </div>
+    <script>
+        function login(roleId) {
+            localStorage.setItem('reabel_demoRole', roleId);
+            localStorage.setItem('reabel_user', JSON.stringify({ id: 'user_demo', email: 'demo@acme.com', name: 'Demo User', role: roleId }));
+            window.location.href = '02_dashboard.html';
+        }
+    </script>
+</body>
+</html>

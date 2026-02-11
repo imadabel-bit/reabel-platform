@@ -1,0 +1,491 @@
+{
+  "description": "Strategic Assessment Templates - Enterprise frameworks for comprehensive evaluation",
+  "templates": [
+    {
+      "id": "strategic_maturity_v1",
+      "name": "Strategic Maturity Assessment",
+      "category": "Strategic Planning",
+      "framework": "REABEL Strategic Framework",
+      "version": "1.0",
+      "description": "Comprehensive 10-dimensional strategic assessment for companies preparing for M&A, growth initiatives, or strategic pivots",
+      "icon": "target",
+      "color": "#48A9A6",
+      "is_public": true,
+      "recommended_for": ["Series B+", "Pre-IPO", "M&A Preparation", "Strategic Review"],
+      "estimated_duration": "4-6 weeks",
+      "total_questions": 150,
+      "dimensions": [
+        {
+          "id": "vision_strategy",
+          "name": "Vision & Strategy",
+          "description": "Strategic clarity, market positioning, and long-term vision alignment",
+          "weight": 1.2,
+          "sort_order": 1,
+          "color": "#667eea",
+          "icon": "compass",
+          "max_score": 5,
+          "questions_count": 15,
+          "key_areas": [
+            "Strategic clarity and articulation",
+            "Market opportunity definition",
+            "Competitive positioning",
+            "Vision-execution alignment",
+            "Strategic decision-making process"
+          ]
+        },
+        {
+          "id": "market_positioning",
+          "name": "Market Positioning",
+          "description": "Market understanding, competitive dynamics, and differentiation strategy",
+          "weight": 1.1,
+          "sort_order": 2,
+          "color": "#f59e0b",
+          "icon": "trending-up",
+          "max_score": 5,
+          "questions_count": 15,
+          "key_areas": [
+            "Total addressable market (TAM) analysis",
+            "Competitive landscape understanding",
+            "Unique value proposition",
+            "Market entry and expansion strategy",
+            "Category leadership position"
+          ]
+        },
+        {
+          "id": "product_platform",
+          "name": "Product Platform",
+          "description": "Product architecture, scalability, innovation capability, and roadmap clarity",
+          "weight": 1.3,
+          "sort_order": 3,
+          "color": "#10b981",
+          "icon": "package",
+          "max_score": 5,
+          "questions_count": 18,
+          "key_areas": [
+            "Product architecture and scalability",
+            "Platform vs. point solution strategy",
+            "Innovation pipeline and R&D",
+            "Product-market fit validation",
+            "Feature parity vs. competitors",
+            "Modular and extensible design"
+          ]
+        },
+        {
+          "id": "organization",
+          "name": "Organization & Talent",
+          "description": "Organizational structure, leadership depth, talent acquisition and retention",
+          "weight": 1.2,
+          "sort_order": 4,
+          "color": "#8b5cf6",
+          "icon": "users",
+          "max_score": 5,
+          "questions_count": 16,
+          "key_areas": [
+            "Leadership team completeness and experience",
+            "Organizational structure and scalability",
+            "Talent acquisition and retention",
+            "Culture and values alignment",
+            "Succession planning",
+            "Performance management systems"
+          ]
+        },
+        {
+          "id": "financial",
+          "name": "Financial Health",
+          "description": "Revenue model, unit economics, profitability path, and financial controls",
+          "weight": 1.4,
+          "sort_order": 5,
+          "color": "#ef4444",
+          "icon": "dollar-sign",
+          "max_score": 5,
+          "questions_count": 14,
+          "key_areas": [
+            "Revenue model clarity and scalability",
+            "Unit economics (CAC, LTV, payback)",
+            "Path to profitability",
+            "Gross margin structure",
+            "Financial planning and controls",
+            "Burn rate and runway management"
+          ]
+        },
+        {
+          "id": "ma_readiness",
+          "name": "M&A Readiness",
+          "description": "Due diligence preparedness, data room readiness, corporate governance",
+          "weight": 1.0,
+          "sort_order": 6,
+          "color": "#ec4899",
+          "icon": "briefcase",
+          "max_score": 5,
+          "questions_count": 12,
+          "key_areas": [
+            "Financial audit readiness",
+            "Legal and IP documentation",
+            "Customer contract structure",
+            "Data room organization",
+            "Corporate governance maturity",
+            "Integration preparedness"
+          ]
+        },
+        {
+          "id": "ai_adoption",
+          "name": "AI & Innovation Adoption",
+          "description": "AI integration, automation capabilities, innovation culture and velocity",
+          "weight": 0.9,
+          "sort_order": 7,
+          "color": "#06b6d4",
+          "icon": "zap",
+          "max_score": 5,
+          "questions_count": 13,
+          "key_areas": [
+            "AI integration in product",
+            "Machine learning capabilities",
+            "Automation of operations",
+            "Data infrastructure for AI",
+            "Innovation velocity and experimentation",
+            "Technology adoption culture"
+          ]
+        },
+        {
+          "id": "technical_foundation",
+          "name": "Technical Foundation",
+          "description": "Infrastructure, security, reliability, technical debt, and engineering practices",
+          "weight": 1.1,
+          "sort_order": 8,
+          "color": "#64748b",
+          "icon": "server",
+          "max_score": 5,
+          "questions_count": 17,
+          "key_areas": [
+            "Architecture scalability and resilience",
+            "Security and compliance posture",
+            "Infrastructure automation",
+            "Engineering practices (CI/CD, testing)",
+            "Technical debt management",
+            "Monitoring and observability",
+            "Disaster recovery and business continuity"
+          ]
+        },
+        {
+          "id": "customer_success",
+          "name": "Customer Success & Satisfaction",
+          "description": "Customer retention, satisfaction scores, support quality, and value delivery",
+          "weight": 1.3,
+          "sort_order": 9,
+          "color": "#14b8a6",
+          "icon": "heart",
+          "max_score": 5,
+          "questions_count": 15,
+          "key_areas": [
+            "Customer retention and churn metrics",
+            "Net Promoter Score (NPS)",
+            "Customer success organization maturity",
+            "Onboarding excellence",
+            "Support quality and SLAs",
+            "Customer health monitoring",
+            "Expansion and upsell capability"
+          ]
+        },
+        {
+          "id": "sales_gtm",
+          "name": "Sales & Go-to-Market",
+          "description": "Sales effectiveness, GTM strategy, channel optimization, and revenue predictability",
+          "weight": 1.2,
+          "sort_order": 10,
+          "color": "#f97316",
+          "icon": "bar-chart",
+          "max_score": 5,
+          "questions_count": 15,
+          "key_areas": [
+            "Sales process and methodology",
+            "Sales productivity metrics",
+            "GTM strategy and channel mix",
+            "Marketing effectiveness and ROI",
+            "Revenue predictability and forecasting",
+            "Partner ecosystem maturity",
+            "Sales enablement and training"
+          ]
+        }
+      ],
+      "scoring_methodology": {
+        "scale": "1-5",
+        "level_1": "Initial - Ad hoc, inconsistent, reactive",
+        "level_2": "Developing - Some processes, limited consistency",
+        "level_3": "Defined - Documented processes, measurable",
+        "level_4": "Managed - Optimized processes, data-driven",
+        "level_5": "Optimizing - Continuous improvement, industry leading"
+      },
+      "metadata": {
+        "industry_focus": ["SaaS", "Technology", "Enterprise Software"],
+        "company_stage": ["Series B", "Series C", "Series D", "Pre-IPO"],
+        "use_cases": ["M&A Due Diligence", "Strategic Planning", "Board Reporting", "Investment Readiness"],
+        "certification": "REABEL Certified Framework v1.0"
+      },
+      "created_at": "2025-01-15T00:00:00Z",
+      "updated_at": "2026-02-11T00:00:00Z"
+    },
+    {
+      "id": "iso27001_assessment",
+      "name": "ISO 27001 Security Assessment",
+      "category": "Security & Compliance",
+      "framework": "ISO 27001:2022",
+      "version": "2.0",
+      "description": "Information Security Management System (ISMS) assessment aligned with ISO 27001 standard",
+      "icon": "shield",
+      "color": "#dc2626",
+      "is_public": true,
+      "recommended_for": ["Enterprise Security", "Compliance Requirements", "Certification Preparation"],
+      "estimated_duration": "6-8 weeks",
+      "total_questions": 114,
+      "dimensions": [
+        {
+          "id": "security_policy",
+          "name": "Security Policy",
+          "description": "Information security policy framework and governance",
+          "weight": 1.0,
+          "sort_order": 1,
+          "color": "#991b1b",
+          "icon": "file-text",
+          "max_score": 5,
+          "questions_count": 8
+        },
+        {
+          "id": "asset_management",
+          "name": "Asset Management",
+          "description": "Asset identification, classification, and protection",
+          "weight": 1.1,
+          "sort_order": 2,
+          "color": "#b91c1c",
+          "icon": "database",
+          "max_score": 5,
+          "questions_count": 12
+        },
+        {
+          "id": "access_control",
+          "name": "Access Control",
+          "description": "User access management and privilege control",
+          "weight": 1.3,
+          "sort_order": 3,
+          "color": "#dc2626",
+          "icon": "lock",
+          "max_score": 5,
+          "questions_count": 16
+        },
+        {
+          "id": "cryptography",
+          "name": "Cryptography",
+          "description": "Cryptographic controls and key management",
+          "weight": 1.0,
+          "sort_order": 4,
+          "color": "#e11d48",
+          "icon": "key",
+          "max_score": 5,
+          "questions_count": 10
+        },
+        {
+          "id": "operations_security",
+          "name": "Operations Security",
+          "description": "Secure operations and change management",
+          "weight": 1.2,
+          "sort_order": 5,
+          "color": "#f43f5e",
+          "icon": "settings",
+          "max_score": 5,
+          "questions_count": 14
+        },
+        {
+          "id": "communications_security",
+          "name": "Communications Security",
+          "description": "Network security and information transfer",
+          "weight": 1.1,
+          "sort_order": 6,
+          "color": "#fb7185",
+          "icon": "wifi",
+          "max_score": 5,
+          "questions_count": 11
+        },
+        {
+          "id": "incident_management",
+          "name": "Incident Management",
+          "description": "Security event and incident response",
+          "weight": 1.3,
+          "sort_order": 7,
+          "color": "#fda4af",
+          "icon": "alert-triangle",
+          "max_score": 5,
+          "questions_count": 13
+        },
+        {
+          "id": "business_continuity",
+          "name": "Business Continuity",
+          "description": "Continuity planning and disaster recovery",
+          "weight": 1.2,
+          "sort_order": 8,
+          "color": "#fecdd3",
+          "icon": "rotate-ccw",
+          "max_score": 5,
+          "questions_count": 12
+        },
+        {
+          "id": "compliance",
+          "name": "Compliance",
+          "description": "Legal, regulatory, and contractual requirements",
+          "weight": 1.4,
+          "sort_order": 9,
+          "color": "#ffe4e6",
+          "icon": "check-square",
+          "max_score": 5,
+          "questions_count": 18
+        }
+      ],
+      "metadata": {
+        "standard": "ISO/IEC 27001:2022",
+        "certification_body": "Various",
+        "validity_period": "3 years"
+      }
+    },
+    {
+      "id": "esg_assessment",
+      "name": "ESG Maturity Assessment",
+      "category": "ESG & Sustainability",
+      "framework": "GRI/SASB Aligned",
+      "version": "1.0",
+      "description": "Environmental, Social, and Governance assessment for corporate responsibility and sustainability",
+      "icon": "globe",
+      "color": "#059669",
+      "is_public": true,
+      "recommended_for": ["Public Companies", "ESG Reporting", "Investor Relations", "Sustainability Goals"],
+      "estimated_duration": "4-6 weeks",
+      "total_questions": 90,
+      "dimensions": [
+        {
+          "id": "environmental",
+          "name": "Environmental",
+          "description": "Environmental impact, climate action, and resource management",
+          "weight": 1.0,
+          "sort_order": 1,
+          "color": "#047857",
+          "icon": "leaf",
+          "max_score": 5,
+          "questions_count": 25
+        },
+        {
+          "id": "social",
+          "name": "Social",
+          "description": "Labor practices, diversity, community engagement",
+          "weight": 1.0,
+          "sort_order": 2,
+          "color": "#0891b2",
+          "icon": "users",
+          "max_score": 5,
+          "questions_count": 30
+        },
+        {
+          "id": "governance",
+          "name": "Governance",
+          "description": "Corporate governance, ethics, and compliance",
+          "weight": 1.0,
+          "sort_order": 3,
+          "color": "#7c3aed",
+          "icon": "shield-check",
+          "max_score": 5,
+          "questions_count": 35
+        }
+      ],
+      "metadata": {
+        "frameworks": ["GRI", "SASB", "TCFD"],
+        "reporting_standards": ["CDP", "DJSI", "MSCI ESG"]
+      }
+    },
+    {
+      "id": "saas_metrics_health",
+      "name": "SaaS Metrics Health Check",
+      "category": "SaaS Operations",
+      "framework": "SaaS Best Practices",
+      "version": "1.0",
+      "description": "Comprehensive SaaS business metrics and operational health assessment",
+      "icon": "activity",
+      "color": "#3b82f6",
+      "is_public": true,
+      "recommended_for": ["SaaS Companies", "Subscription Business", "Venture-Backed Startups"],
+      "estimated_duration": "2-3 weeks",
+      "total_questions": 75,
+      "dimensions": [
+        {
+          "id": "revenue_growth",
+          "name": "Revenue & Growth",
+          "description": "ARR, MRR, growth rates, and revenue quality",
+          "weight": 1.3,
+          "sort_order": 1,
+          "color": "#2563eb",
+          "icon": "trending-up",
+          "max_score": 5,
+          "questions_count": 15
+        },
+        {
+          "id": "unit_economics",
+          "name": "Unit Economics",
+          "description": "CAC, LTV, payback period, and profitability metrics",
+          "weight": 1.4,
+          "sort_order": 2,
+          "color": "#1d4ed8",
+          "icon": "dollar-sign",
+          "max_score": 5,
+          "questions_count": 18
+        },
+        {
+          "id": "customer_retention",
+          "name": "Customer Retention",
+          "description": "Churn, retention, expansion, and customer health",
+          "weight": 1.3,
+          "sort_order": 3,
+          "color": "#1e40af",
+          "icon": "repeat",
+          "max_score": 5,
+          "questions_count": 16
+        },
+        {
+          "id": "sales_efficiency",
+          "name": "Sales Efficiency",
+          "description": "Sales productivity, pipeline, and conversion metrics",
+          "weight": 1.2,
+          "sort_order": 4,
+          "color": "#1e3a8a",
+          "icon": "target",
+          "max_score": 5,
+          "questions_count": 14
+        },
+        {
+          "id": "product_engagement",
+          "name": "Product Engagement",
+          "description": "User adoption, feature usage, and product stickiness",
+          "weight": 1.1,
+          "sort_order": 5,
+          "color": "#172554",
+          "icon": "bar-chart-2",
+          "max_score": 5,
+          "questions_count": 12
+        }
+      ],
+      "metadata": {
+        "metrics_included": ["ARR", "MRR", "CAC", "LTV", "NRR", "GRR", "Magic Number", "Rule of 40"],
+        "benchmark_source": "SaaS Capital Index, OpenView SaaS Benchmarks"
+      }
+    }
+  ],
+  "template_categories": [
+    "Strategic Planning",
+    "Security & Compliance",
+    "ESG & Sustainability",
+    "SaaS Operations",
+    "Financial Due Diligence",
+    "Technical Assessment",
+    "HR & Culture",
+    "Sales & Marketing"
+  ],
+  "metadata": {
+    "total_templates": 4,
+    "last_updated": "2026-02-11T00:00:00Z",
+    "version": "1.0"
+  }
+}

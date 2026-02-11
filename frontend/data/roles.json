@@ -1,0 +1,97 @@
+{
+  "roles": {
+    "reabel_superadmin": {
+      "id": "reabel_superadmin",
+      "name": "Super Admin",
+      "type": "Platform Owner",
+      "icon": "👑",
+      "readOnly": false,
+      "navigation": "all",
+      "banner": {
+        "title": "Super Admin View",
+        "text": "Platform-wide access to all customers"
+      }
+    },
+    "reabel_csm": {
+      "id": "reabel_csm",
+      "name": "CSM",
+      "type": "Customer Success",
+      "icon": "🤝",
+      "readOnly": false,
+      "navigation": "all",
+      "banner": {
+        "title": "CSM View",
+        "text": "Supporting multiple customer accounts"
+      }
+    },
+    "reabel_analyst": {
+      "id": "reabel_analyst",
+      "name": "Analyst",
+      "type": "Read-Only",
+      "icon": "📊",
+      "readOnly": true,
+      "navigation": ["dashboard", "progress", "review", "actions"],
+      "banner": {
+        "title": "Analyst View",
+        "text": "Read-only access to all customer data"
+      }
+    },
+    "customer_admin": {
+      "id": "customer_admin",
+      "name": "Customer Admin",
+      "type": "Company Owner",
+      "icon": "👨‍💼",
+      "readOnly": false,
+      "navigation": "all",
+      "banner": null
+    },
+    "domain_manager": {
+      "id": "domain_manager",
+      "name": "Domain Manager",
+      "type": "Product Platform",
+      "icon": "🎯",
+      "readOnly": false,
+      "navigation": ["dashboard", "answer", "review", "actions", "progress", "team"],
+      "banner": {
+        "title": "Domain Manager View",
+        "text": "Managing: Product Platform, Technical Foundation, AI Adoption"
+      }
+    },
+    "contributor": {
+      "id": "contributor",
+      "name": "Contributor",
+      "type": "Team Member",
+      "icon": "✍️",
+      "readOnly": false,
+      "navigation": ["dashboard", "answer", "progress", "team"],
+      "banner": {
+        "title": "Your Assigned Tasks",
+        "text": "You have 3 questions assigned in Product Platform"
+      }
+    },
+    "reviewer": {
+      "id": "reviewer",
+      "name": "Reviewer",
+      "type": "Executive",
+      "icon": "👁️",
+      "readOnly": false,
+      "navigation": ["dashboard", "review", "actions", "progress", "team"],
+      "banner": {
+        "title": "Reviewer Mode",
+        "text": "Review and approve submitted responses"
+      }
+    },
+    "observer": {
+      "id": "observer",
+      "name": "Observer",
+      "type": "View Only",
+      "icon": "👀",
+      "readOnly": true,
+      "navigation": ["dashboard", "progress", "review", "actions"],
+      "banner": {
+        "title": "Observer Mode",
+        "text": "Read-only access to view progress and reports"
+      }
+    }
+  }
+}

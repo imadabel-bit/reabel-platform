@@ -1,0 +1,38 @@
+{
+  "questions": [
+    {
+      "id": "q_001",
+      "template_id": "strategic_maturity_v1",
+      "dimension_id": "vision_strategy",
+      "question_text": "How clearly articulated is your company's long-term vision (3-5 years)?",
+      "question_type": "scale",
+      "scale_min": 1,
+      "scale_max": 5,
+      "help_text": "Consider clarity, alignment, and communication of vision across organization",
+      "is_required": true,
+      "sort_order": 1
+    },
+    {
+      "id": "q_002",
+      "template_id": "strategic_maturity_v1",
+      "dimension_id": "vision_strategy",
+      "question_text": "How well does your strategic plan translate to actionable initiatives?",
+      "question_type": "scale",
+      "scale_min": 1,
+      "scale_max": 5,
+      "is_required": true,
+      "sort_order": 2
+    },
+    {
+      "id": "q_003",
+      "template_id": "strategic_maturity_v1",
+      "dimension_id": "product_platform",
+      "question_text": "To what extent is your product architecture scalable and modular?",
+      "question_type": "scale",
+      "scale_min": 1,
+      "scale_max": 5,
+      "is_required": true,
+      "sort_order": 3
+    }
+  ]
+}

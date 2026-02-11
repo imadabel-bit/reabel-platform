@@ -1,0 +1,15 @@
+/* Components CSS - Reusable UI component styles */
+
+.datatable-container { background: var(--color-white); border-radius: var(--radius-lg); }
+.datatable-toolbar { padding: var(--spacing-lg); border-bottom: 1px solid var(--color-gray-200); display: flex; gap: var(--spacing-md); }
+.datatable { width: 100%; border-collapse: collapse; }
+.datatable th { padding: var(--spacing-md); text-align: left; font-weight: var(--font-weight-semibold); }
+.datatable td { padding: var(--spacing-md); border-top: 1px solid var(--color-gray-200); }
+
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.modal-dialog { background: var(--color-white); border-radius: var(--radius-lg); max-width: 600px; width: 90%; }
+.modal-header { padding: var(--spacing-lg); border-bottom: 1px solid var(--color-gray-200); }
+.modal-body { padding: var(--spacing-lg); }
+.modal-footer { padding: var(--spacing-lg); border-top: 1px solid var(--color-gray-200); display: flex; gap: var(--spacing-md); justify-content: flex-end; }
+
+#notification-container { position: fixed; top: 20px; right: 20px; z-index: 99999; }

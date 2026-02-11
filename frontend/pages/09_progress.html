@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progress - REABEL</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <style>
+        body { margin: 0; padding: 0; }
+        #sidebar-container { position: fixed; top: 0; left: 0; width: 260px; height: 100vh; z-index: 1000; }
+        .main-content { margin-left: 260px; padding: 2rem; min-height: 100vh; }
+    </style>
+</head>
+<body>
+    <div id="sidebar-container"></div>
+    <div class="main-content">
+        <h1>Progress</h1>
+        <div class="card"><p>Progress page content will be displayed here.</p></div>
+    </div>
+    <div id="modal-container"></div>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="../config/app.config.js"></script>
+    <script src="../utils/eventBus.js"></script>
+    <script src="../store/store.js"></script>
+    <script src="../api/apiService.js"></script>
+    <script src="../services/authService.js"></script>
+    <script src="../services/roleService.js"></script>
+    <script src="../services/navigationService.js"></script>
+    <script src="../services/notificationService.js"></script>
+    <script src="../components/Component.js"></script>
+    <script src="../components/Sidebar.js"></script>
+    <script src="../components/RoleSwitcher.js"></script>
+    <script src="../components/Modal.js"></script>
+    <script>
+        async function init() {
+            notificationService = new NotificationService();
+            await notificationService.initialize();
+            await roleService.initialize();
+            await navigationService.initialize();
+            sidebar = new Sidebar({ currentPage: 'progress' });
+            sidebar.mount('#sidebar-container');
+            roleSwitcherComponent = new RoleSwitcher();
+            roleSwitcherComponent.mount('#roleSwitcherDropdown');
+            modalComponent = new Modal();
+            modalComponent.mount('#modal-container');
+            lucide.createIcons();
+        }
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
