@@ -1,19 +1,10 @@
- cat > render.yaml << 'EOF'
-cat render.yaml
-# Go to your project folder
-cd ~/reabel-platform
-
-# Create render.yaml file
-cat > render.yaml << 'EOF'
 services:
-  # PostgreSQL Database
   - type: pserv
     name: reabel-database
     plan: free
     databaseName: reabel_platform
     databaseUser: reabel_user
 
-  # Backend API
   - type: web
     name: reabel-backend
     runtime: node
@@ -34,7 +25,6 @@ services:
       - key: CORS_ORIGIN
         value: "*"
 
-  # Frontend Static Site
   - type: web
     name: reabel-frontend
     runtime: static
