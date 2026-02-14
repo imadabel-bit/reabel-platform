@@ -21,69 +21,13 @@ const pool = new Pool({
     ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
 });
 
-// Auto-migrate database on startup
-async function initializeDatabase() {
-    try {
-        console.log('🔨 Initializing database...');
-        
-        // Create partners table
-        await pool.query(`
-            CREATE TABLE IF NOT EXISTS partners (
-                partner_id SERIAL PRIMARY KEY,
-                partner_name VARCHAR(255) NOT NULL,
-                email VARCHAR(255) UNIQUE NOT NULL,
-                password_hash VARCHAR(255) NOT NULL,
-                company_name VARCHAR(255),
-                phone VARCHAR(50),
-                is_admin BOOLEAN DEFAULT false,
-                is_active BOOLEAN DEFAULT true,
-                email_verified BOOLEAN DEFAULT false,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                last_login_at TIMESTAMP,
-                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        `);
-        await pool.query('CREATE INDEX IF NOT EXISTS idx_partners_email ON partners(email)');
-        await pool.query('CREATE INDEX IF NOT EXISTS idx_partners_active ON partners(is_active)');
-        
-        // Create verification_tokens table
-        await pool.query(`
-            CREATE TABLE IF NOT EXISTS verification_tokens (
-                token_id SERIAL PRIMARY KEY,
-                partner_id INTEGER REFERENCES partners(partner_id) ON DELETE CASCADE,
-                token VARCHAR(255) UNIQUE NOT NULL,
-                token_type VARCHAR(50) NOT NULL,
-                expires_at TIMESTAMP NOT NULL,
-                used_at TIMESTAMP NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        `);
-        await pool.query('CREATE INDEX IF NOT EXISTS idx_verification_tokens_token ON verification_tokens(token)');
-        await pool.query('CREATE INDEX IF NOT EXISTS idx_verification_tokens_partner ON verification_tokens(partner_id)');
-        
-        // Insert demo admin partner
-        const passwordHash = await bcrypt.hash('reabel2024', 10);
-        await pool.query(`
-            INSERT INTO partners (partner_name, email, password_hash, is_admin, email_verified)
-            VALUES ($1, $2, $3, true, true)
-            ON CONFLICT (email) DO NOTHING
-        `, ['Imad Abel', 'imad@reabel.com', passwordHash]);
-        
-        console.log('✅ Database initialized successfully');
-        console.log('✅ Demo account: imad@reabel.com / reabel2024');
-        
-    } catch (error) {
-        console.error('❌ Database initialization failed:', error.message);
-        throw error;
+// Test database connection
+pool.query('SELECT NOW()', (err, res) => {
+    if (err) {
+        console.error('❌ Database connection failed:', err.message);
+    } else {
+        console.log('✅ Database connected at:', res.rows[0].now);
     }
-}
-
-// Initialize database and test connection
-initializeDatabase().then(() => {
-    console.log('✅ Database ready');
-}).catch(err => {
-    console.error('❌ Startup failed:', err);
-    process.exit(1);
 });
 
 // Express app
